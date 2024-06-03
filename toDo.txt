@@ -1,0 +1,6 @@
+1. Work on weighting subtraction in cost model. Potentially by 1.5.
+2. Include a way for Mini Zinc to consider powers of 3 when optimizing. Powers of 3
+   must be more expensive in cost model
+3. Automatically graph the results in python
+3. Compare the realtive frequency of good optimizations in the results of normal cost model vs k+1 model
+4. Familiarize with division by constant: https://cas.ee.ic.ac.uk/people/gac1/pubs/TheoISCAS12.pdf
