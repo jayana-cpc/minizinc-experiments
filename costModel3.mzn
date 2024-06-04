@@ -1,11 +1,11 @@
-% K + 1 Model
+% Regular Model
 int: C;
 int: N = ceil(log2(C));
 set of int: X = -2*C..2*C; 
 array[0..N] of var -1..1: L;
 
-function var int: optimize(array[int] of var int: L) =
-    sum(k in 0..N)(abs(L[k]) * (k + 1));
+function var float: optimize(array[int] of var int: L) =
+    sum(k in 0..N)( if L[k] < 0 then (k + 1.5) * abs(L[k]) else abs(L[k]) endif );
 
 
 function string: multiplication(array[int] of var int: L) =
