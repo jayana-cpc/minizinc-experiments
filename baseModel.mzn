@@ -1,12 +1,13 @@
-% Regular Model
+/* Base Model
+*  Optimization Goal: Reduce operation count.
+*/
+
 int: C;
 int: N = ceil(log2(C));
-set of int: X = -2*C..2*C; 
 array[0..N] of var -1..1: L;
 
 function var int: optimize(array[int] of var int: L) =
-    sum(k in 0..N)(abs(L[k]));
-
+    sum(k in 0..N)(abs(L[k])) - 1;
 
 function string: multiplication(array[int] of var int: L) =
     concat(
@@ -17,7 +18,7 @@ function string: multiplication(array[int] of var int: L) =
         ]
     );
 
-constraint forall(x in X)(C * x == sum(k in 0..N)(L[k] * (2^k) * x));
+constraint (C == sum(k in 0..N)(L[k] * (2^k)));
 
 solve minimize optimize(L);
 
