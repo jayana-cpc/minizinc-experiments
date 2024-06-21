@@ -15,10 +15,10 @@ function var int: optimize(array[int] of var int: L, array[int] of var int: R) =
          
 function var int: uniqueExpressions(array[int] of var int: R) =
     let {
-        set of int: values = {3, 5, 9, 17, 33, 65, 129, 257, 513, 1025, 2049, 4097, 8193},
-        array[1..card(values)] of var int: count_values = [sum(k in 0..N where R[k] == v)(1) | v in values]
+        set of int: values = {3, 5, 9, 17, 33, 65, 129, 257, 513, 1025, 2049, 4097, 8193}
     } in
-        sum(i in 1..card(values) where count_values[i] > 0)(1);
+        sum(v in values where exists(k in index_set(R))(R[k] == v))(1);
+
             
 function string: multiplication(array[int] of var int: L, array[int] of var int: R) =
     concat(
