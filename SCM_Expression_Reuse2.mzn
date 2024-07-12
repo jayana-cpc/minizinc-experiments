@@ -34,5 +34,5 @@ constraint (C == sum(k in 0..N)(L[k] * R[k] * (2^k)));
 solve minimize optimize(L, R);
 
 output [
-    show(optimize(L, R)), " ", multiplication(L, R), " R: ", show(R), " L: ", show(L)
+    show(optimize(L, R)), " ", multiplication(L, R)
 ];
